@@ -18,6 +18,10 @@
 		return food;
 	}
 
+	public void setCurrentFood(int quantity) {
+		this.food = quantity;
+	}
+
 	public void eatFood(){
 		food++;
 	}

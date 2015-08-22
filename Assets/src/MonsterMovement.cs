@@ -69,6 +69,7 @@ public class MonsterMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		monster.eatFood();
+		Destroy(collider.gameObject);
 	}
 
 	void RotateCountCWise(){
