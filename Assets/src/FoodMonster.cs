@@ -1,5 +1,5 @@
 public interface FoodMonster
 {
-	double getCurrentFood();
+	int getCurrentFood();
 }
 
