@@ -13,10 +13,10 @@ public class Level : MonoBehaviour {
 	
 	}
 
-	public double requiredTransitionFood;
+	public int requiredTransitionFood;
 	public Level nextLevel;
 	
-	public double getRequiredTransitionFood(){
+	public int getRequiredTransitionFood(){
 		return requiredTransitionFood;
 	}
 	
@@ -25,17 +25,19 @@ public class Level : MonoBehaviour {
 	}
 
 	public void Hide() {
-		Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+		gameObject.SetActive (false);
+		/*Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = false;
-		}
+		}*/
 	}
 
 	public void Show() {
-		Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+		gameObject.SetActive (true);
+		/*Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = true;
-		}
+		}*/
 	}
 }
 
