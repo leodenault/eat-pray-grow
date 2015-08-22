@@ -42,7 +42,7 @@ public class MonsterMovement : MonoBehaviour {
 			float currentAngle = monster.transform.rotation.eulerAngles.z;
 			if(Mathf.Abs(270-currentAngle) <= 5){
 				monster.transform.rotation = Quaternion.Euler(0,0,270);
-			} else if(currentAngle < 270 && currentAngle >= 90){
+			} else if(currentAngle < 270 && currentAngle > 90){
 				RotateCountCWise();
 			} else {
 				RotateCWise();
