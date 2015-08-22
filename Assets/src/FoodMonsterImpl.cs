@@ -9,5 +9,11 @@
 		public int getCurrentFood() {
 			return food;
 		}
+
+		public void eatFood(){
+			food++;
+		}
+
+
 	}
 }
