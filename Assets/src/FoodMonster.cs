@@ -1,4 +1,4 @@
-public interface FoodMonster
+public interface FoodMonster 
 {
 	void eatFood();
 	int getCurrentFood();

@@ -10,13 +10,19 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
+		Level nextLevel = currentLevel.getNextLevel ();
+
+		while (nextLevel != currentLevel) {
+			nextLevel.Hide();
+			nextLevel = nextLevel.getNextLevel();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		double currentFood = monster.getCurrentFood();
-		double requiredFood = currentLevel.getRequiredTransitionFood();
+		int currentFood = monster.getCurrentFood();
+		int requiredFood = currentLevel.getRequiredTransitionFood();
 
 		if (currentFood > requiredFood) {
 			this.transitionToNextLevel();
