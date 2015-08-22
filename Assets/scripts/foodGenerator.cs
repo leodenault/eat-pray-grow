@@ -1,35 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class foodGenerator : MonoBehaviour {
+public class FoodGenerator : MonoBehaviour {
 	
 	public Transform foodtype;
 	public float probability;
 	public int maxCookies;
 	public int currentCookies;
 
+	public static int cookieID = 0;
+
+	private Level level;
+
+	List<GameObject> foodPool = new List<GameObject>();
+
 	// Use this for initialization
 	void Start () {
 		Vector3 screenPosition;
+		this.level = (Level)this.gameObject.GetComponent (typeof(Level));
 		
-		for (int i=0; i<Random.Range (2, Screen.width/15); i++) {
+		for (int i=0; i<5; i++) {
 			screenPosition = Camera.main.ScreenToWorldPoint (
 				new Vector3 (Random.Range (0, Screen.width), Random.Range (0, Screen.height), Camera.main.farClipPlane / 2));
 			SpawnFood (screenPosition);
 			currentCookies++;
 		}
 	}
+
+	public void notifyEaten(Food food) {
+		foodPool.Remove (food.gameObject);
+	}
 	
 	// Update is called once per frame
 	void Update (){
-		if (currentCookies < maxCookies) {
+		if (foodPool.Count < maxCookies) {
 			SpawnFood (RandomOutsideCameraPosition ());
-			currentCookies++;
 		}
 	}
 	
 	void SpawnFood(Vector3 pos) {
-		Instantiate (foodtype, pos, Quaternion.identity);
+		GameObject gameFood = ((Transform)Instantiate (foodtype, pos, Quaternion.identity)).gameObject;
+		gameFood.name = (cookieID++).ToString();
+		gameFood.transform.parent = this.gameObject.transform;
+		Food food = (Food)gameFood.GetComponent (typeof(Food));
+		food.setFoodGenerator (this);
+		foodPool.Add(gameFood);
 	}
 	
 	Vector3 RandomOutsideCameraPosition(){

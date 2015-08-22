@@ -3,7 +3,17 @@ using System.Collections;
 
 public class food : MonoBehaviour {
 
-	public float foodValue;
+	public int foodValue;
+
+	FoodGenerator generator;
+
+	public void setFoodGenerator(FoodGenerator generator) {
+		this.generator = generator;
+	}
+
+	public FoodGenerator getLevel() {
+		return generator;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -13,5 +23,9 @@ public class food : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void GetEaten() {
+		generator.notifyEaten (this);
 	}
 }
