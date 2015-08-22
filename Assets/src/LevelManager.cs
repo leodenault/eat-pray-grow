@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour {
 			nextLevel.Hide();
 			nextLevel = nextLevel.getNextLevel();
 		}
+
+		currentLevel.Show ();
 	}
 	
 	// Update is called once per frame
@@ -33,7 +35,7 @@ public class LevelManager : MonoBehaviour {
 
 	void transitionToNextLevel(){
 
-
+		this.monster.setCurrentFood(0);
 		this.currentLevel.Hide ();
 		this.currentLevel = currentLevel.getNextLevel();
 		this.currentLevel.Show ();
