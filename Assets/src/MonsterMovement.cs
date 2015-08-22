@@ -65,6 +65,9 @@ public class MonsterMovement : MonoBehaviour {
 		}
 
 		foodCount.text = "Food: " + monster.getCurrentFood();
+
+		Vector3 pos = monsterObject.transform.position;
+		monster.setPosition(pos);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {

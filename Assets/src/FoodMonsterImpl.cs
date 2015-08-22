@@ -1,7 +1,10 @@
-﻿public class FoodMonsterImpl : FoodMonster {
+﻿using UnityEngine;
+
+public class FoodMonsterImpl : FoodMonster {
 	private static FoodMonsterImpl INSTANCE;
 		
 	private int food;
+	private Vector2 pos;
 		
 	private FoodMonsterImpl() {
 		food = 0;
@@ -24,5 +27,13 @@
 
 	public void eatFood(){
 		food++;
+	}
+
+	public Vector3 getPosition() {
+		return pos;
+	}
+
+	public void setPosition(Vector3 pos) {
+		this.pos = pos;
 	}
 }
