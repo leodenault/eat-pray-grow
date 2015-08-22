@@ -1,19 +1,24 @@
-﻿namespace Assets.src {
-	public class FoodMonsterImpl : FoodMonster {
-		private int food;
+﻿public class FoodMonsterImpl : FoodMonster {
+	private static FoodMonsterImpl INSTANCE;
 		
-		public FoodMonsterImpl() {
-			food = 0;
+	private int food;
+		
+	private FoodMonsterImpl() {
+		food = 0;
+	}
+
+	public static FoodMonster GetInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new FoodMonsterImpl();
 		}
+		return INSTANCE;
+	}
 
-		public int getCurrentFood() {
-			return food;
-		}
+	public int getCurrentFood() {
+		return food;
+	}
 
-		public void eatFood(){
-			food++;
-		}
-
-
+	public void eatFood(){
+		food++;
 	}
 }

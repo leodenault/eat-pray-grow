@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		monster = FoodMonsterImpl.GetInstance();
 	}
 	
 	// Update is called once per frame
