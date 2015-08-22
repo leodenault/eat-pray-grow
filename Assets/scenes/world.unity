@@ -332,6 +332,10 @@ Prefab:
       propertyPath: nextLevel
       value: 
       objectReference: {fileID: 2071879275}
+    - target: {fileID: 11485118, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: requiredTransitionFood
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
   m_IsPrefabParent: 0
@@ -492,6 +496,7 @@ MonoBehaviour:
   foodCount: {fileID: 1146759591}
   monsterObject: {fileID: 2069697302}
   cam: {fileID: 2025229176}
+  rotationDegreesPerSecond: 10
 --- !u!212 &2069697305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -594,6 +599,15 @@ Prefab:
       propertyPath: nextLevel
       value: 
       objectReference: {fileID: 1319487191}
+    - target: {fileID: 11485118, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: requiredTransitionFood
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 21227288, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 63394d5aba785446a83ed2c90f671e8d,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
   m_IsPrefabParent: 0
