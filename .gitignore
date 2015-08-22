@@ -3,6 +3,7 @@ Temp
 Library
 Obj
 *.csproj
+*.csproj.meta
 *.unityproj
 *.sln
 *.user
