@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 108194}
   chomp: {fileID: 8280986, guid: d0f5cc212fb983d49a516c55cf7316d3, type: 2}
+  eatenEffect: {fileID: 176392, guid: c1c490dd2f7ab6d4d8eda15f897ebeb3, type: 2}
 --- !u!212 &21240512
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -122,6 +123,10 @@ Prefab:
       propertyPath: chomp
       value: 
       objectReference: {fileID: 8280986, guid: d0f5cc212fb983d49a516c55cf7316d3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: eatenEffect
+      value: 
+      objectReference: {fileID: 176392, guid: c1c490dd2f7ab6d4d8eda15f897ebeb3, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108194}

@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
 
 	public GameObject enemy;
 	public AudioSource chomp;
+	public GameObject eatenEffect;
 
 	// Use this for initialization
 	void Start () {
@@ -49,6 +50,9 @@ public class Enemy : MonoBehaviour {
 			killDelay = chomp.clip.length * 2;
 			killed = true;
 			Instantiate(chomp).Play();
+			eatenEffect.transform.localScale = new Vector3(3, 3, 1);
+			Instantiate(eatenEffect, monster.getPosition(), Quaternion.identity);
+			monster.setVisible(false);
 		}
 	}
 
