@@ -32,9 +32,6 @@ public class EnemyGenerator : MonoBehaviour
 			addEnemy = false;
 		}
 
-		//int rand = UnityEngine.Random.Range (0, 500);
-		//Debug.Log ("Rand value = " + rand);
-
 		if (enemyCount < enemyMax && (Math.Abs(timeCount - poisson) <= 0.5)) {
 			Debug.Log("SPWAN ENEMY");
 			SpawnEnemy();
