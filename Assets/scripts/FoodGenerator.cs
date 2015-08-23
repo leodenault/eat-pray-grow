@@ -5,16 +5,15 @@ using System.Collections.Generic;
 public class FoodGenerator : MonoBehaviour {
 	
 	public Transform foodtype;
-	public float probability;
 	public int maxCookies;
 	public int currentCookies;
-
+	
 	public static int cookieID = 0;
-
+	
 	private Level level;
-
+	
 	List<GameObject> foodPool = new List<GameObject>();
-
+	
 	// Use this for initialization
 	void Start () {
 		Vector3 screenPosition;
@@ -27,7 +26,7 @@ public class FoodGenerator : MonoBehaviour {
 			currentCookies++;
 		}
 	}
-
+	
 	public void notifyEaten(Food food) {
 		foodPool.Remove (food.gameObject);
 	}
@@ -52,7 +51,7 @@ public class FoodGenerator : MonoBehaviour {
 		
 		int y=0;
 		int x=0;
-
+		
 		int area = Random.Range(0, 4);
 		if (area <=0 ) {//bottom
 			y = Random.Range(-Screen.height, 0);
