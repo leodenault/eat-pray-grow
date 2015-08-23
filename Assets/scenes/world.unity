@@ -504,6 +504,7 @@ GameObject:
   - 92: {fileID: 2025229175}
   - 124: {fileID: 2025229174}
   - 81: {fileID: 2025229173}
+  - 114: {fileID: 2025229178}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -578,6 +579,18 @@ Transform:
   - {fileID: 2069697303}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &2025229178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025229172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d9514b3224a4444b049aafa9b491eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 108194, guid: a15f9b8208de10047b5bb77d54d37122, type: 2}
 --- !u!1 &2069697302
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +639,7 @@ MonoBehaviour:
   foodCount: {fileID: 1146759591}
   monsterObject: {fileID: 2069697302}
   cam: {fileID: 2025229176}
+  hitbox: {fileID: 0}
   rotationDegreesPerSecond: 10
 --- !u!212 &2069697305
 SpriteRenderer:
