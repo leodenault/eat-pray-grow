@@ -100,8 +100,7 @@ public class MonsterMovement : MonoBehaviour {
 			cam.transform.position = new Vector3(this.transform.position.x,
 			                                     this.transform.position.y,
 			                                     cam.transform.position.z);
-			/*Rigidbody2D body = (Rigidbody2D)(this.GetComponent(typeof(Rigidbody2D)));
-			body.velocity*/
+
 		}
 
 
