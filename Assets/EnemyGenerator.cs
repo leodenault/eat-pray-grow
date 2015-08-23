@@ -26,7 +26,7 @@ public class EnemyGenerator : MonoBehaviour
 		// time function, Poisson distribution
 
 		if (addEnemy) {
-			float lamda = 10;
+			float lamda = 15;
 			poisson = PoissonNum (lamda);
 			Debug.Log ("Poisson " + poisson);
 			addEnemy = false;
