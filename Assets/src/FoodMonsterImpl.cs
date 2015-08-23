@@ -4,6 +4,7 @@ public class FoodMonsterImpl : FoodMonster {
 	private static FoodMonsterImpl INSTANCE;
 		
 	private int food;
+	private int totalFood;
 	private Vector2 pos;
 	private Collider2D hitbox;
 	private bool visible;
@@ -31,6 +32,7 @@ public class FoodMonsterImpl : FoodMonster {
 	public void eatFood(Food foodToEat){
 		foodToEat.GetEaten ();
 		food += foodToEat.foodValue;
+		totalFood += foodToEat.foodValue;
 	}
 
 	public Vector3 getPosition() {
@@ -59,5 +61,14 @@ public class FoodMonsterImpl : FoodMonster {
 
 	public void setVisible(bool visible) {
 		this.visible = visible;
+	}
+
+	public void reset() {
+		food = 0;
+		totalFood = 0;
+	}
+
+	public int getTotalFood() {
+		return totalFood;
 	}
 }

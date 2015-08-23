@@ -12,5 +12,7 @@ public interface FoodMonster
 	void kill();
 	bool isVisible();
 	void setVisible(bool visible);
+	void reset();
+	int getTotalFood();
 }
 

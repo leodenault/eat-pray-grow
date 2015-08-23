@@ -8,8 +8,10 @@ public class MonsterMovement : MonoBehaviour {
 	private float rotateSpeed = 1f;
 
 	private FoodMonster monster;
+	private float playTime;
 
 	public Text foodCount;
+	public Text time;
 	public GameObject monsterObject;
 	public Camera cam;
 
@@ -26,6 +28,8 @@ public class MonsterMovement : MonoBehaviour {
 		monster = FoodMonsterImpl.GetInstance();
 		monster.setHitbox(hitbox);
 		monster.setVisible(true);
+		monster.reset();
+		playTime = 0;
 	}
 
 	Vector3 mousePosition;
@@ -93,8 +97,14 @@ public class MonsterMovement : MonoBehaviour {
 		//Movement
 		/*transform.Translate (Vector3.right * moveHorizontal * speed * Time.deltaTime);
 		transform.Translate (Vector3.up * moveVertical * speed * Time.deltaTime);*/
-
-
+		foodCount.text = "Food: " + monster.getTotalFood();
+		playTime += Time.deltaTime;
+		int minutes = (int)(playTime / 60);
+		int seconds = (int)(playTime - (60 * minutes));
+		time.text = "Survival time: " + string.Format(
+			generateNumberFormat(minutes, 0) + ":" + generateNumberFormat(seconds, 1),
+				minutes, seconds);
+		
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
@@ -105,5 +115,7 @@ public class MonsterMovement : MonoBehaviour {
 		}
 	}
 
-
+	private string generateNumberFormat(int number, int index) {
+		return string.Format(number < 10 ? "0{{{0}}}" : "{{{0}}}", index);
+	}
 }
