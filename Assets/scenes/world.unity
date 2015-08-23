@@ -1619,6 +1619,7 @@ MonoBehaviour:
   monsterObject: {fileID: 2069697302}
   cam: {fileID: 2025229176}
   hitbox: {fileID: 2069697308}
+  transitionEffect: {fileID: 173316, guid: 66423852d130142e6ac363260b75a796, type: 2}
 --- !u!212 &2069697305
 SpriteRenderer:
   m_ObjectHideFlags: 0

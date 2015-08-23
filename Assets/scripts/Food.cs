@@ -29,8 +29,6 @@ public class Food : MonoBehaviour {
 	
 	public void GetEaten() {
 		generator.notifyEaten (this);
-
-		Debug.Log ("BOOM");
 		Instantiate (eatenEffect, this.transform.position, Quaternion.identity);
 	}
 }
