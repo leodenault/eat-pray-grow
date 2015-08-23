@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour {
 		enemy.transform.Translate(MAX_SPEED * Time.deltaTime * velocity);
 		enemy.transform.rotation = Quaternion.FromToRotation(new Vector3(1, 0, 0), velocity);
 		enemy.transform.Rotate(new Vector3(0, 0, -90));
-		Debug.Log(velocity + ", " + enemy.transform.rotation.eulerAngles);
+//		Debug.Log(velocity + ", " + enemy.transform.rotation.eulerAngles);
 	}
 
 	private Vector3 getDirectionVector() {

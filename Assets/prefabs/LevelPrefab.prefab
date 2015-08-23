@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 465776}
   - 212: {fileID: 21227288}
   - 114: {fileID: 11485118}
+  - 114: {fileID: 11446784}
   m_Layer: 0
   m_Name: LevelPrefab
   m_TagString: Untagged
@@ -29,6 +30,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11446784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8ba9c19a9490849a86b77234f4c89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodtype: {fileID: 486280, guid: 734eb5ea0f4e39a4282eca83390c6741, type: 2}
+  probability: 0
+  maxCookies: 50
+  currentCookies: 0
+  generationWidth: 15
+  generationHeight: 10
+  center: {fileID: 0}
 --- !u!114 &11485118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1269345805
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a969f3e565c184279ac481eb3d3a15ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2866aa8b06b5f9741b2f225bcdb8e3c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -74,7 +93,20 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: maxCookies
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: foodtype
+      value: 
+      objectReference: {fileID: 486280, guid: 734eb5ea0f4e39a4282eca83390c6741, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2866aa8b06b5f9741b2f225bcdb8e3c8,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117678}
