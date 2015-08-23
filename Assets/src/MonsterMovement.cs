@@ -5,14 +5,17 @@ using System.Collections;
 public class MonsterMovement : MonoBehaviour {
 
 	private const float speed = 6f;
+	private float rotateSpeed = 1f;
 
 	private FoodMonster monster;
 
 	public Text foodCount;
 	public GameObject monsterObject;
 	public Camera cam;
+
 	public Collider2D hitbox;
-	public float rotationDegreesPerSecond = 10f;
+
+	private float rotationDegreesPerSecond = 120;
 
 	// Use this for initialization
 	void Start () {
@@ -20,11 +23,13 @@ public class MonsterMovement : MonoBehaviour {
 		monster.setHitbox(hitbox);
 		monster.setVisible(true);
 	}
-	
+
+	Vector3 mousePosition;
+
 	// Update is called once per frame
 	void Update () {
 		// arrow key rotation control
-		float distance = Time.deltaTime * speed;
+		/*float distance = Time.deltaTime * speed;
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			float currentAngle = monsterObject.transform.rotation.eulerAngles.z;
 			if(Mathf.Abs(90-currentAngle) <= 5){
@@ -70,8 +75,41 @@ public class MonsterMovement : MonoBehaviour {
 		foodCount.text = "Food: " + monster.getCurrentFood();
 
 		Vector3 pos = monsterObject.transform.position;
-		monster.setPosition(pos);
-		gameObject.SetActive(monster.isVisible());
+
+		monster.setPosition(pos);*/
+
+
+
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
+
+		/*Vector3 dir = (Vector3.right * moveHorizontal * speed * Time.deltaTime) + 
+			(Vector3.up * moveVertical * speed * Time.deltaTime); */
+
+		//Vector3 target = dir + this.transform.position;
+
+		if (moveHorizontal > 0) {
+			transform.Rotate(Vector3.forward, rotationDegreesPerSecond * Time.deltaTime);
+		} else if (moveHorizontal < 0) {
+			transform.Rotate(Vector3.forward, -rotationDegreesPerSecond * Time.deltaTime);
+		}
+
+		if (moveVertical > 0) {
+
+			this.transform.Translate(Vector3.up * speed * Time.deltaTime);
+			cam.transform.position = new Vector3(this.transform.position.x,
+			                                     this.transform.position.y,
+			                                     cam.transform.position.z);
+			/*Rigidbody2D body = (Rigidbody2D)(this.GetComponent(typeof(Rigidbody2D)));
+			body.velocity*/
+		}
+
+
+		//Movement
+		/*transform.Translate (Vector3.right * moveHorizontal * speed * Time.deltaTime);
+		transform.Translate (Vector3.up * moveVertical * speed * Time.deltaTime);*/
+
+
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
@@ -82,16 +120,5 @@ public class MonsterMovement : MonoBehaviour {
 		}
 	}
 
-	void RotateCountCWise(){
-		float currentAngle = monsterObject.transform.rotation.eulerAngles.z;
-		float newAngle = currentAngle + rotationDegreesPerSecond;
-		monsterObject.transform.rotation = Quaternion.Euler(0, 0, newAngle);
-	}
-
-	void RotateCWise(){
-		float currentAngle = monsterObject.transform.rotation.eulerAngles.z;
-		float newAngle = currentAngle - rotationDegreesPerSecond;
-		monsterObject.transform.rotation = Quaternion.Euler(0, 0, newAngle);
-	}
 
 }
