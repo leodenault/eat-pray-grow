@@ -215,7 +215,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 286866214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252e985e17afcaa49a342f840411c826, type: 3}
+  m_Script: {fileID: 11500000, guid: ac75751dcdfff4974808e7510b535adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 1319487191}
@@ -471,7 +471,6 @@ GameObject:
   - 92: {fileID: 2025229175}
   - 124: {fileID: 2025229174}
   - 81: {fileID: 2025229173}
-  - 114: {fileID: 2025229178}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -546,21 +545,6 @@ Transform:
   - {fileID: 2069697303}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &2025229178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2025229172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8ba9c19a9490849a86b77234f4c89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodtype: {fileID: 486280, guid: 734eb5ea0f4e39a4282eca83390c6741, type: 2}
-  probability: 400
-  maxCookies: 0
-  currentCookies: 0
 --- !u!1 &2069697302
 GameObject:
   m_ObjectHideFlags: 0

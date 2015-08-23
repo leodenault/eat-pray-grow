@@ -5,8 +5,15 @@ using System.Collections.Generic;
 public class FoodGenerator : MonoBehaviour {
 	
 	public Transform foodtype;
+	public float probability;
 	public int maxCookies;
 	public int currentCookies;
+	
+	public double generationWidth = 15;
+	public double generationHeight = 10;
+	
+	
+	public Transform center;
 	
 	public static int cookieID = 0;
 	
@@ -19,12 +26,12 @@ public class FoodGenerator : MonoBehaviour {
 		Vector3 screenPosition;
 		this.level = (Level)this.gameObject.GetComponent (typeof(Level));
 		
-		for (int i=0; i<5; i++) {
+		/*for (int i=0; i<5; i++) {
 			screenPosition = Camera.main.ScreenToWorldPoint (
 				new Vector3 (Random.Range (0, Screen.width), Random.Range (0, Screen.height), Camera.main.farClipPlane / 2));
 			SpawnFood (screenPosition);
 			currentCookies++;
-		}
+		}*/
 	}
 	
 	public void notifyEaten(Food food) {
@@ -35,6 +42,26 @@ public class FoodGenerator : MonoBehaviour {
 	void Update (){
 		if (foodPool.Count < maxCookies) {
 			SpawnFood (RandomOutsideCameraPosition ());
+		}
+		
+		
+		List<GameObject> toRemove = new List<GameObject>();
+		foreach (GameObject food in foodPool) {
+			if (food == null)
+				continue;
+
+			Vector3 delta = (food.transform.position - this.center.position);
+//			Debug.Log (delta);
+
+			if ((delta.x > generationWidth) || (delta.x < -generationWidth) || (delta.y > generationHeight) || (delta.y < -generationHeight)) {
+				toRemove.Add(food);
+			}
+			
+		}
+
+		foreach (GameObject food in toRemove) {
+			foodPool.Remove(food);
+			Destroy(food);
 		}
 	}
 	
