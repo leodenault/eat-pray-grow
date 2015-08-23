@@ -5,6 +5,7 @@ public class FoodMonsterImpl : FoodMonster {
 		
 	private int food;
 	private Vector2 pos;
+	private Collider2D hitbox;
 		
 	private FoodMonsterImpl() {
 		food = 0;
@@ -36,5 +37,17 @@ public class FoodMonsterImpl : FoodMonster {
 
 	public void setPosition(Vector3 pos) {
 		this.pos = pos;
+	}
+
+	public Collider2D getHitbox() {
+		return hitbox;
+	}
+
+	public void setHitbox(Collider2D hitbox) {
+		this.hitbox = hitbox;
+	}
+
+	public void kill() {
+		Debug.Log("I AM DEAD");
 	}
 }

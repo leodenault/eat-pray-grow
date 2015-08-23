@@ -30,7 +30,12 @@ public class Enemy : MonoBehaviour {
 		enemy.transform.Translate(MAX_SPEED * Time.deltaTime * velocity);
 		enemy.transform.rotation = Quaternion.FromToRotation(new Vector3(1, 0, 0), velocity);
 		enemy.transform.Rotate(new Vector3(0, 0, -90));
-//		Debug.Log(velocity + ", " + enemy.transform.rotation.eulerAngles);
+	}
+
+	public void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.Equals(monster.getHitbox())) {
+			monster.kill();
+		}
 	}
 
 	private Vector3 getDirectionVector() {
@@ -38,5 +43,4 @@ public class Enemy : MonoBehaviour {
 		Vector3 distance = monsterPos - enemy.transform.position;
 		return distance.normalized;
 	}
-	
 }

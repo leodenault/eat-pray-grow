@@ -266,7 +266,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
 --- !u!4 &629839958
 Transform:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 1087986663}
   m_GameObject: {fileID: 629839955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2069697303}
@@ -326,6 +326,18 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 2025229176}
+    - target: {fileID: 6167228, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462830, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
+      propertyPath: hitbox
+      value: 
+      objectReference: {fileID: 2069697308}
+    - target: {fileID: 6167228, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
   m_IsPrefabParent: 0
@@ -566,6 +578,7 @@ GameObject:
   - 114: {fileID: 2069697304}
   - 61: {fileID: 2069697307}
   - 50: {fileID: 2069697306}
+  - 61: {fileID: 2069697308}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -601,6 +614,7 @@ MonoBehaviour:
   foodCount: {fileID: 1146759591}
   monsterObject: {fileID: 2069697302}
   cam: {fileID: 2025229176}
+  hitbox: {fileID: 2069697308}
   rotationDegreesPerSecond: 10
 --- !u!212 &2069697305
 SpriteRenderer:
@@ -655,11 +669,24 @@ BoxCollider2D:
   m_GameObject: {fileID: 2069697302}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .699999988}
   serializedVersion: 2
-  m_Size: {x: .5, y: .5}
+  m_Size: {x: .5, y: 2}
+--- !u!61 &2069697308
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2069697302}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2}
 --- !u!1001 &2071879274
 Prefab:
   m_ObjectHideFlags: 0
@@ -742,11 +769,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 405704, guid: a15f9b8208de10047b5bb77d54d37122, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -39.5
+      value: -.100000001
       objectReference: {fileID: 0}
     - target: {fileID: 405704, guid: a15f9b8208de10047b5bb77d54d37122, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.699999988
+      value: -10.1000004
       objectReference: {fileID: 0}
     - target: {fileID: 405704, guid: a15f9b8208de10047b5bb77d54d37122, type: 2}
       propertyPath: m_LocalPosition.z
@@ -771,6 +798,10 @@ Prefab:
     - target: {fileID: 405704, guid: a15f9b8208de10047b5bb77d54d37122, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6160622, guid: a15f9b8208de10047b5bb77d54d37122, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a15f9b8208de10047b5bb77d54d37122, type: 2}
