@@ -71,7 +71,7 @@ public class MonsterMovement : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		monster.eatFood();
+		monster.eatFood((Food)collider.GetComponent(typeof(Food)));
 		Destroy(collider.gameObject);
 	}
 

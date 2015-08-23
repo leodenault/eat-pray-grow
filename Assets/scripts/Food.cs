@@ -4,7 +4,9 @@ using System.Collections;
 public class Food : MonoBehaviour {
 	
 	public int foodValue;
-	
+
+	public GameObject eatenEffect;
+
 	FoodGenerator generator;
 	
 	public void setFoodGenerator(FoodGenerator generator) {
@@ -27,5 +29,8 @@ public class Food : MonoBehaviour {
 	
 	public void GetEaten() {
 		generator.notifyEaten (this);
+
+		Debug.Log ("BOOM");
+		Instantiate (eatenEffect, this.transform.position, Quaternion.identity);
 	}
 }

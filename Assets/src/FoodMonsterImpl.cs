@@ -25,7 +25,8 @@ public class FoodMonsterImpl : FoodMonster {
 		this.food = quantity;
 	}
 
-	public void eatFood(){
+	public void eatFood(Food foodToEat){
+		foodToEat.GetEaten ();
 		food++;
 	}
 
