@@ -17,23 +17,35 @@ public class EnemyGenerator : MonoBehaviour
 	private int enemyMax = 15;
 
 	void Update(){
-
+		float dtime = Time.deltaTime;
 		// time function, Poisson distribution
-		double mu = 7;
-		double x = 2;
+		//double mu = UnityEngine.Random.Range(0,20);
+		//double x = 10;
+		//double poisson = (Math.Pow (Math.E, -mu) * Math.Pow (mu, x)) / Factorial (x);
 
-		double poisson = (Math.Pow (Math.E, -mu) * Math.Pow (mu, x)) / Factorial (x);
-		//Debug.Log (poisson);
+		double lamda = 10;
+		double poisson = PoissonNum (lamda);
+		Debug.Log ("Poisson " + poisson);
 
-		//Debug.Log ("Camera " + Camera.main.gameObject.transform.localPosition);
 
-		//Debug.Log ("Width " + screenw + " Height" + screenh);
 		int rand = UnityEngine.Random.Range (0, 500);
-		Debug.Log ("Rand value = " + rand);
+		//Debug.Log ("Rand value = " + rand);
 
 		if (enemyCount < enemyMax && rand >= 485) {
 			SpawnEnemy();
 		}
+	}
+
+	double PoissonNum(double lambda){
+		double l = Math.Exp (-lambda);
+		double k = 0.0;
+		double p = 1.0;
+
+		do {
+			k++;
+			p *= UnityEngine.Random.Range(0,1);
+		} while(p > l);
+		return k - 1;
 	}
 
 	double Factorial(double n){
