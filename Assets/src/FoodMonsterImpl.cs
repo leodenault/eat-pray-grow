@@ -6,9 +6,11 @@ public class FoodMonsterImpl : FoodMonster {
 	private int food;
 	private Vector2 pos;
 	private Collider2D hitbox;
+	private bool visible;
 		
 	private FoodMonsterImpl() {
 		food = 0;
+		visible = true;
 	}
 
 	public static FoodMonster GetInstance() {
@@ -49,5 +51,13 @@ public class FoodMonsterImpl : FoodMonster {
 
 	public void kill() {
 		Application.LoadLevel("title");
+	}
+
+	public bool isVisible() {
+		return visible;
+	}
+
+	public void setVisible(bool visible) {
+		this.visible = visible;
 	}
 }

@@ -18,6 +18,7 @@ public class MonsterMovement : MonoBehaviour {
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
 		monster.setHitbox(hitbox);
+		monster.setVisible(true);
 	}
 	
 	// Update is called once per frame
@@ -70,6 +71,7 @@ public class MonsterMovement : MonoBehaviour {
 
 		Vector3 pos = monsterObject.transform.position;
 		monster.setPosition(pos);
+		gameObject.SetActive(monster.isVisible());
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {

@@ -10,5 +10,7 @@ public interface FoodMonster
 	Collider2D getHitbox();
 	void setHitbox(Collider2D hitbox);
 	void kill();
+	bool isVisible();
+	void setVisible(bool visible);
 }
 
