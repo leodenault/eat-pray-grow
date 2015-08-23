@@ -13,10 +13,35 @@ public class EnemyGenerator : MonoBehaviour
 {
 	public GameObject enemyPrefab;
 
-	void Update(){
-		GameObject enemy = Instantiate (enemyPrefab);
+	private int enemyCount;
+	private int enemyMax = 10;
 
+	void Update(){
+
+		// time function, Poisson distribution
+		double mu = 7;
+		double x = 2;
+
+		double poisson = (Math.Pow (Math.E, -mu) * Math.Pow (mu, x)) / Factorial (x);
+		Debug.Log (poisson);
+
+		if (enemyCount < enemyMax) {
+			//SpawnEnemy();
+		}
+	}
+
+	double Factorial(double n){
+		if(n <= 1){
+			return 1;
+		} else {
+			return n * Factorial(n - 1); 
+		}
+	}
+
+	void SpawnEnemy(){
+		GameObject enemy = Instantiate (enemyPrefab);
 		enemy.transform.position = new Vector3 (10, 10, 0);
+		enemyCount++;
 	}
 }
 
