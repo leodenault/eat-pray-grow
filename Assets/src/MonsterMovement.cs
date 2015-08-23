@@ -4,7 +4,7 @@ using System.Collections;
 
 public class MonsterMovement : MonoBehaviour {
 
-	private const float speed = 4f;
+	private const float speed = 6f;
 
 	private FoodMonster monster;
 
