@@ -15,45 +15,44 @@ public class EnemyGenerator : MonoBehaviour
 
 	private int enemyCount;
 	private int enemyMax = 15;
+	private float timeCount;
+	private float poisson;
+	private Boolean addEnemy = true;
 
 	void Update(){
 		float dtime = Time.deltaTime;
+		timeCount += dtime;
+		//Debug.Log ("Time = " + timeCount);
 		// time function, Poisson distribution
-		//double mu = UnityEngine.Random.Range(0,20);
-		//double x = 10;
-		//double poisson = (Math.Pow (Math.E, -mu) * Math.Pow (mu, x)) / Factorial (x);
 
-		double lamda = 10;
-		double poisson = PoissonNum (lamda);
-		Debug.Log ("Poisson " + poisson);
+		if (addEnemy) {
+			float lamda = 10;
+			poisson = PoissonNum (lamda);
+			Debug.Log ("Poisson " + poisson);
+			addEnemy = false;
+		}
 
-
-		int rand = UnityEngine.Random.Range (0, 500);
+		//int rand = UnityEngine.Random.Range (0, 500);
 		//Debug.Log ("Rand value = " + rand);
 
-		if (enemyCount < enemyMax && rand >= 485) {
+		if (enemyCount < enemyMax && (Math.Abs(timeCount - poisson) <= 0.5)) {
+			Debug.Log("SPWAN ENEMY");
 			SpawnEnemy();
+			addEnemy = true;
 		}
 	}
 
-	double PoissonNum(double lambda){
-		double l = Math.Exp (-lambda);
-		double k = 0.0;
-		double p = 1.0;
+	float PoissonNum(float lambda){
+		float l = (float)Math.Exp (-lambda);
+		float k = 0.0f;
+		float p = 1.0f;
 
 		do {
 			k++;
-			p *= UnityEngine.Random.Range(0,1);
+			float rand = UnityEngine.Random.Range(0.0f,1.0f);
+			p = p * rand;
 		} while(p > l);
 		return k - 1;
-	}
-
-	double Factorial(double n){
-		if(n <= 1){
-			return 1;
-		} else {
-			return n * Factorial(n - 1); 
-		}
 	}
 
 	void SpawnEnemy(){
