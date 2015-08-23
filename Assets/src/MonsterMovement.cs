@@ -18,7 +18,7 @@ public class MonsterMovement : MonoBehaviour {
 
 	public Collider2D hitbox;
 
-	private float rotationDegreesPerSecond = 120;
+	private float rotationDegreesPerSecond = 170;
 
 	public GameObject transitionEffect;
 
