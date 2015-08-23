@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodValue: 5
+  eatenEffect: {fileID: 141012, guid: 4e0536b4809544c57bcb7eb58dee82aa, type: 2}
 --- !u!212 &21236552
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -138,6 +139,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 9478cb982e7ad4e9cb4e2809693734eb,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: eatenEffect
+      value: 
+      objectReference: {fileID: 141012, guid: 4e0536b4809544c57bcb7eb58dee82aa, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 112090}
