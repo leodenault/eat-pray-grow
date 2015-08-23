@@ -5,9 +5,12 @@ public class FoodMonsterImpl : FoodMonster {
 		
 	private int food;
 	private Vector2 pos;
+	private Collider2D hitbox;
+	private bool visible;
 		
 	private FoodMonsterImpl() {
 		food = 0;
+		visible = true;
 	}
 
 	public static FoodMonster GetInstance() {
@@ -25,7 +28,8 @@ public class FoodMonsterImpl : FoodMonster {
 		this.food = quantity;
 	}
 
-	public void eatFood(){
+	public void eatFood(Food foodToEat){
+		foodToEat.GetEaten ();
 		food++;
 	}
 
@@ -35,5 +39,25 @@ public class FoodMonsterImpl : FoodMonster {
 
 	public void setPosition(Vector3 pos) {
 		this.pos = pos;
+	}
+
+	public Collider2D getHitbox() {
+		return hitbox;
+	}
+
+	public void setHitbox(Collider2D hitbox) {
+		this.hitbox = hitbox;
+	}
+
+	public void kill() {
+		Application.LoadLevel("title");
+	}
+
+	public bool isVisible() {
+		return visible;
+	}
+
+	public void setVisible(bool visible) {
+		this.visible = visible;
 	}
 }

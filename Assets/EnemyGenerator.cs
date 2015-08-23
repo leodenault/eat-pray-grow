@@ -14,33 +14,65 @@ public class EnemyGenerator : MonoBehaviour
 	public GameObject enemyPrefab;
 
 	private int enemyCount;
-	private int enemyMax = 10;
+	private int enemyMax = 15;
+	private float timeCount;
+	private float poisson;
+	private Boolean addEnemy = true;
 
 	void Update(){
-
+		float dtime = Time.deltaTime;
+		timeCount += dtime;
+		//Debug.Log ("Time = " + timeCount);
 		// time function, Poisson distribution
-		double mu = 7;
-		double x = 2;
 
-		double poisson = (Math.Pow (Math.E, -mu) * Math.Pow (mu, x)) / Factorial (x);
-		Debug.Log (poisson);
+		if (addEnemy) {
+			float lamda = 15;
+			poisson = PoissonNum (lamda);
+			Debug.Log ("Poisson " + poisson);
+			addEnemy = false;
+		}
 
-		if (enemyCount < enemyMax) {
-			//SpawnEnemy();
+		if (enemyCount < enemyMax && (Math.Abs(timeCount - poisson) <= 0.5)) {
+			Debug.Log("SPWAN ENEMY");
+			SpawnEnemy();
+			timeCount = 0;
+			addEnemy = true;
 		}
 	}
 
-	double Factorial(double n){
-		if(n <= 1){
-			return 1;
-		} else {
-			return n * Factorial(n - 1); 
-		}
+	float PoissonNum(float lambda){
+		float l = (float)Math.Exp (-lambda);
+		float k = 0.0f;
+		float p = 1.0f;
+
+		do {
+			k++;
+			float rand = UnityEngine.Random.Range(0.0f,1.0f);
+			p = p * rand;
+		} while(p > l);
+		return k - 1;
 	}
 
 	void SpawnEnemy(){
 		GameObject enemy = Instantiate (enemyPrefab);
-		enemy.transform.position = new Vector3 (10, 10, 0);
+		Vector3 camPos = Camera.main.gameObject.transform.localPosition;
+		Vector3 enemyPos = camPos;
+
+		float randQuad = UnityEngine.Random.Range (0, 4);
+		if (randQuad <= 1) {
+			// ++
+			enemyPos = new Vector3(camPos.x + UnityEngine.Random.Range(10,15), camPos.y + UnityEngine.Random.Range(10,15), 0);
+		} else if (randQuad <= 2) {
+			// +-
+			enemyPos = new Vector3(camPos.x + UnityEngine.Random.Range(10,15), camPos.y - UnityEngine.Random.Range(10,15), 0);
+		} else if (randQuad <= 3) {
+			// -+
+			enemyPos = new Vector3(camPos.x - UnityEngine.Random.Range(10,15), camPos.y + UnityEngine.Random.Range(10,15), 0);
+		} else {
+			// --
+			enemyPos = new Vector3(camPos.x - UnityEngine.Random.Range(10,15), camPos.y - UnityEngine.Random.Range(10,15), 0);
+		}
+		enemy.transform.position = enemyPos;
 		enemyCount++;
 	}
 }

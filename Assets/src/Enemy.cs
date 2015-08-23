@@ -7,13 +7,21 @@ public class Enemy : MonoBehaviour {
 
 	private FoodMonster monster;
 	private Vector3 velocity;
+	private bool killed;
+	private bool gameOverStart;
+	private float killDelay;
+	private float gameOverDelay;
 
 	public GameObject enemy;
+	public AudioSource chomp;
+	public AudioSource gameOver;
+	public GameObject eatenEffect;
 
 	// Use this for initialization
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
 		velocity = getDirectionVector();
+		killed = false;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +38,37 @@ public class Enemy : MonoBehaviour {
 		enemy.transform.Translate(MAX_SPEED * Time.deltaTime * velocity);
 		enemy.transform.rotation = Quaternion.FromToRotation(new Vector3(1, 0, 0), velocity);
 		enemy.transform.Rotate(new Vector3(0, 0, -90));
-//		Debug.Log(velocity + ", " + enemy.transform.rotation.eulerAngles);
+
+		if (killed) {
+			if (killDelay > 0) {
+					killDelay -= Time.deltaTime;
+			} else {
+
+				if (gameOverStart) {
+					if (gameOverDelay > 0) {
+						gameOverDelay -= Time.deltaTime;
+					} else {
+						monster.kill();
+					}
+				} else {
+					Instantiate(gameOver).Play();
+				}
+
+				gameOverStart = true;
+			}
+		}
+	}
+
+	public void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.Equals(monster.getHitbox())) {
+			killDelay = chomp.clip.length;
+			gameOverDelay = gameOver.clip.length;
+			killed = true;
+			Instantiate(chomp).Play();
+			eatenEffect.transform.localScale = new Vector3(3, 3, 1);
+			Instantiate(eatenEffect, monster.getPosition(), Quaternion.identity);
+			monster.setVisible(false);
+		}
 	}
 
 	private Vector3 getDirectionVector() {
@@ -38,5 +76,4 @@ public class Enemy : MonoBehaviour {
 		Vector3 distance = monsterPos - enemy.transform.position;
 		return distance.normalized;
 	}
-	
 }

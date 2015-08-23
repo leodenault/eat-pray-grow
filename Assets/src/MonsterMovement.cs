@@ -11,11 +11,14 @@ public class MonsterMovement : MonoBehaviour {
 	public Text foodCount;
 	public GameObject monsterObject;
 	public Camera cam;
+	public Collider2D hitbox;
 	public float rotationDegreesPerSecond = 10f;
 
 	// Use this for initialization
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
+		monster.setHitbox(hitbox);
+		monster.setVisible(true);
 	}
 	
 	// Update is called once per frame
@@ -68,11 +71,15 @@ public class MonsterMovement : MonoBehaviour {
 
 		Vector3 pos = monsterObject.transform.position;
 		monster.setPosition(pos);
+		gameObject.SetActive(monster.isVisible());
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		monster.eatFood();
-		Destroy(collider.gameObject);
+		Food isItFood = collider.gameObject.GetComponent<Food>();
+		if (isItFood != null && isItFood.GetType() == typeof(Food)) {
+			monster.eatFood((Food)collider.GetComponent(typeof(Food)));
+			Destroy(collider.gameObject);
+		}
 	}
 
 	void RotateCountCWise(){
