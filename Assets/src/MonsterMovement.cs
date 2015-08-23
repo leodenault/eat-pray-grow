@@ -4,7 +4,7 @@ using System.Collections;
 
 public class MonsterMovement : MonoBehaviour {
 
-	private const float speed = 15f;
+	private const float speed = 9f;
 	private float rotateSpeed = 1f;
 
 	private FoodMonster monster;
@@ -89,6 +89,8 @@ public class MonsterMovement : MonoBehaviour {
 			(Vector3.up * moveVertical * speed * Time.deltaTime); */
 
 		//Vector3 target = dir + this.transform.position;
+
+		Rigidbody2D body = (Rigidbody2D)(this.GetComponent(typeof(Rigidbody2D)));
 
 		if (moveHorizontal > 0) {
 			transform.Rotate(Vector3.forward, -rotationDegreesPerSecond * Time.deltaTime);
