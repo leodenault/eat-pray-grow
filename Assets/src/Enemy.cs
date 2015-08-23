@@ -34,4 +34,5 @@ public class Enemy : MonoBehaviour {
 		Vector3 distance = monsterPos - enemy.transform.position;
 		return distance.normalized;
 	}
+	
 }
