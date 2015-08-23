@@ -14,6 +14,7 @@ public class MonsterMovement : MonoBehaviour {
 	public Text time;
 	public GameObject monsterObject;
 	public Camera cam;
+	public AudioSource nom;
 
 	public Collider2D hitbox;
 
@@ -111,6 +112,7 @@ public class MonsterMovement : MonoBehaviour {
 		Food isItFood = collider.gameObject.GetComponent<Food>();
 		if (isItFood != null && isItFood.GetType() == typeof(Food)) {
 			monster.eatFood((Food)collider.GetComponent(typeof(Food)));
+			nom.Play();
 			Destroy(collider.gameObject);
 		}
 	}
