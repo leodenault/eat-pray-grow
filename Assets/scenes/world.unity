@@ -338,6 +338,18 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6123916, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
+      propertyPath: m_Size.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123916, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
+      propertyPath: m_Offset.y
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123916, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7dd36e35f73ed7c48b9fadad15412537, type: 2}
   m_IsPrefabParent: 0
@@ -614,7 +626,6 @@ MonoBehaviour:
   foodCount: {fileID: 1146759591}
   monsterObject: {fileID: 2069697302}
   cam: {fileID: 2025229176}
-  hitbox: {fileID: 2069697308}
   rotationDegreesPerSecond: 10
 --- !u!212 &2069697305
 SpriteRenderer:
@@ -669,11 +680,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 2069697302}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .699999988}
+  m_Offset: {x: 0, y: .899999976}
   serializedVersion: 2
-  m_Size: {x: .5, y: 2}
+  m_Size: {x: .5, y: .5}
 --- !u!61 &2069697308
 BoxCollider2D:
   m_ObjectHideFlags: 0
