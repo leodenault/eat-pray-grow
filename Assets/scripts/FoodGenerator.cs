@@ -94,7 +94,7 @@ public class FoodGenerator : MonoBehaviour {
 			y = Random.Range(0, Screen.height);
 		}
 		
-		Vector3 newPosition = Camera.main.ScreenToWorldPoint( new Vector3(x, y, Camera.main.farClipPlane / 2));
+		Vector3 newPosition = Camera.main.ScreenToWorldPoint( new Vector3(x, y, 11));
 		
 		return newPosition;
 	}
