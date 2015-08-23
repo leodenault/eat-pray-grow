@@ -35,6 +35,7 @@ public class EnemyGenerator : MonoBehaviour
 		if (enemyCount < enemyMax && (Math.Abs(timeCount - poisson) <= 0.5)) {
 			Debug.Log("SPWAN ENEMY");
 			SpawnEnemy();
+			timeCount = 0;
 			addEnemy = true;
 		}
 	}
