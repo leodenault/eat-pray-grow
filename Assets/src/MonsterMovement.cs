@@ -4,7 +4,7 @@ using System.Collections;
 
 public class MonsterMovement : MonoBehaviour {
 
-	private const float speed = 6f;
+	private const float speed = 15f;
 	private float rotateSpeed = 1f;
 
 	private FoodMonster monster;
@@ -75,8 +75,10 @@ public class MonsterMovement : MonoBehaviour {
 		foodCount.text = "Food: " + monster.getCurrentFood();
 
 		Vector3 pos = monsterObject.transform.position;
+*/
 
-		monster.setPosition(pos);*/
+
+		gameObject.SetActive(monster.isVisible());
 
 
 
@@ -89,21 +91,21 @@ public class MonsterMovement : MonoBehaviour {
 		//Vector3 target = dir + this.transform.position;
 
 		if (moveHorizontal > 0) {
-			transform.Rotate(Vector3.forward, rotationDegreesPerSecond * Time.deltaTime);
-		} else if (moveHorizontal < 0) {
 			transform.Rotate(Vector3.forward, -rotationDegreesPerSecond * Time.deltaTime);
+		} else if (moveHorizontal < 0) {
+			transform.Rotate(Vector3.forward, rotationDegreesPerSecond * Time.deltaTime);
 		}
 
-		if (moveVertical > 0) {
+		//if (moveVertical > 0) {
 
 			this.transform.Translate(Vector3.up * speed * Time.deltaTime);
 			cam.transform.position = new Vector3(this.transform.position.x,
 			                                     this.transform.position.y,
 			                                     cam.transform.position.z);
 
-		}
+		//}
 
-
+		monster.setPosition(this.transform.position);
 		//Movement
 		/*transform.Translate (Vector3.right * moveHorizontal * speed * Time.deltaTime);
 		transform.Translate (Vector3.up * moveVertical * speed * Time.deltaTime);*/
