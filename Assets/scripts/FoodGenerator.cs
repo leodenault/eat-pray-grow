@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class FoodGenerator : MonoBehaviour {
 	
-	public Transform foodtype;
+	public Transform[] foodtypes;
+
 	public float probability;
 	public int maxCookies;
 	public int currentCookies;
@@ -66,6 +67,8 @@ public class FoodGenerator : MonoBehaviour {
 	}
 	
 	void SpawnFood(Vector3 pos) {
+		Transform foodtype = foodtypes[Random.Range (0, foodtypes.Length)];
+
 		GameObject gameFood = ((Transform)Instantiate (foodtype, pos, Quaternion.identity)).gameObject;
 		gameFood.name = (cookieID++).ToString();
 		gameFood.transform.parent = this.gameObject.transform;
