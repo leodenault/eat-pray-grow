@@ -1,18 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LevelTransition : MonoBehaviour {
+public class LevelTransition {
 
+	static LevelTransition instance = new LevelTransition ();
 
-	public double neededFoodScore;
+	bool isTransitionning = false;
 
-	// Use this for initialization
-	void Start () {
-	
+	public bool getTransitioning() {
+		return isTransitionning;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public static LevelTransition getInstance() {
+		return instance;
+	}
+
+	public void startTransition() {
+		this.isTransitionning = true;
+
+	}
+
+	public void endTransition() {
+		this.isTransitionning = false;
 	}
 }

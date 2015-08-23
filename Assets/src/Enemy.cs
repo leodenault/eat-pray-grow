@@ -26,6 +26,12 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (LevelTransition.getInstance().getTransitioning()) {
+			return;
+		}
+
+
 		Vector3 direction = getDirectionVector();
 		velocity += (velocity + direction) / ROTATION_FACTOR;
 

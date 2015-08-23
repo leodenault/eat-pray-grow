@@ -17,6 +17,8 @@ public class MonsterMovement : MonoBehaviour {
 
 	private float rotationDegreesPerSecond = 120;
 
+	float secondsOfSpinning = 0;
+
 	// Use this for initialization
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
@@ -76,7 +78,17 @@ public class MonsterMovement : MonoBehaviour {
 
 		Vector3 pos = monsterObject.transform.position;
 */
+		if (LevelTransition.getInstance ().getTransitioning ()) {
+			transform.Rotate(Vector3.forward, -1080 * Time.deltaTime);
+			secondsOfSpinning += Time.deltaTime;
 
+			if (secondsOfSpinning > 3) {
+				LevelTransition.getInstance().endTransition();
+				secondsOfSpinning = 0;
+
+			}
+			return;
+		}
 
 		gameObject.SetActive(monster.isVisible());
 
@@ -108,6 +120,8 @@ public class MonsterMovement : MonoBehaviour {
 		//}
 
 		monster.setPosition(this.transform.position);
+
+		this.transform.localScale =  new Vector3 (0.66f, 0.66f, 0.66f) * (float)(1 + monster.getCurrentFood () * 0.05);
 		//Movement
 		/*transform.Translate (Vector3.right * moveHorizontal * speed * Time.deltaTime);
 		transform.Translate (Vector3.up * moveVertical * speed * Time.deltaTime);*/
