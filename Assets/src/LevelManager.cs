@@ -34,14 +34,16 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void transitionToNextLevel(){
-
+		LevelTransition.getInstance ().setManager (this);
 		LevelTransition.getInstance ().startTransition ();
 
 		this.monster.setCurrentFood(0);
+	}
+
+	public void actuallyTransitionToNextLevel() {
 		this.currentLevel.Hide ();
 		this.currentLevel = currentLevel.getNextLevel();
 		this.currentLevel.Show ();
-
-
 	}
+	
 }

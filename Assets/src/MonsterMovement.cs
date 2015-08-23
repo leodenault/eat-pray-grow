@@ -17,6 +17,8 @@ public class MonsterMovement : MonoBehaviour {
 
 	private float rotationDegreesPerSecond = 120;
 
+	public GameObject transitionEffect;
+
 	float secondsOfSpinning = 0;
 
 	// Use this for initialization
@@ -29,63 +31,29 @@ public class MonsterMovement : MonoBehaviour {
 	Vector3 mousePosition;
 
 	// Update is called once per frame
+	bool firstTransitionTick = true;
 	void Update () {
-		// arrow key rotation control
-		/*float distance = Time.deltaTime * speed;
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			float currentAngle = monsterObject.transform.rotation.eulerAngles.z;
-			if(Mathf.Abs(90-currentAngle) <= 5){
-				monsterObject.transform.rotation = Quaternion.Euler(0, 0, 90);
-			} else if(currentAngle > 90 && currentAngle < 270){
-				RotateCWise();
-			} else {
-				RotateCountCWise();
-			}
-			cam.transform.Translate(new Vector3(-distance, 0, 0));
-		} else if (Input.GetKey (KeyCode.DownArrow)) {
-			float currentAngle = monsterObject.transform.rotation.eulerAngles.z;
-			if(Mathf.Abs(180-currentAngle) <= 5){
-				monsterObject.transform.rotation = Quaternion.Euler(0, 0, 180);
-			} else if(currentAngle >= 0 && currentAngle < 180){
-				RotateCountCWise();
-			} else {
-				RotateCWise();
-			}
-			cam.transform.Translate(new Vector3(0,-distance,0));
-		} else if(Input.GetKey (KeyCode.RightArrow)) {
-			float currentAngle = monsterObject.transform.rotation.eulerAngles.z;
-			if(Mathf.Abs(270-currentAngle) <= 5){
-				monsterObject.transform.rotation = Quaternion.Euler(0, 0, 270);
-			} else if(currentAngle < 270 && currentAngle >= 90){
-					RotateCountCWise();
-			} else {
-				RotateCWise();
-			}
-			cam.transform.Translate(new Vector3(distance,0,0));
-		} else if (Input.GetKey (KeyCode.UpArrow)) {
-			float currentAngle = monsterObject.transform.rotation.eulerAngles.z;
-			if(Mathf.Abs(0-currentAngle) <= 5){
-				monsterObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-			} else if(currentAngle > 0 && currentAngle <= 180){
-				RotateCWise();
-			} else {
-				RotateCountCWise();
-			}
-			cam.transform.Translate(new Vector3(0,distance,0));
-		}
 
-		foodCount.text = "Food: " + monster.getCurrentFood();
-
-		Vector3 pos = monsterObject.transform.position;
-*/
 		if (LevelTransition.getInstance ().getTransitioning ()) {
+
+			this.transform.localScale =  this.transform.localScale * 0.98f;
+			if (this.transform.localScale.x < 0.66) {
+				this.transform.localScale = new Vector3(0.66f, 0.66f, 0.66f);
+			}
+			
 			transform.Rotate(Vector3.forward, -1080 * Time.deltaTime);
 			secondsOfSpinning += Time.deltaTime;
+
+			if (firstTransitionTick) {
+				Instantiate (transitionEffect, this.transform.position, Quaternion.identity);
+			}
+
+			firstTransitionTick = false;
 
 			if (secondsOfSpinning > 3) {
 				LevelTransition.getInstance().endTransition();
 				secondsOfSpinning = 0;
-
+				firstTransitionTick = true;
 			}
 			return;
 		}

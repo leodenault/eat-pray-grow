@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour {
 						gameOverDelay -= Time.deltaTime;
 					} else {
 						monster.kill();
+						Music.togglePause();
 					}
 				} else {
 					Instantiate(gameOver).Play();
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour {
 		if (collider.Equals(monster.getHitbox())) {
 			killDelay = chomp.clip.length;
 			gameOverDelay = gameOver.clip.length;
+			Music.togglePause();
 			killed = true;
 			Instantiate(chomp).Play();
 			eatenEffect.transform.localScale = new Vector3(3, 3, 1);
