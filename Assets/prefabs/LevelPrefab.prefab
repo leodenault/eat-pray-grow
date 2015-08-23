@@ -40,7 +40,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8ba9c19a9490849a86b77234f4c89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodtype: {fileID: 486280, guid: 734eb5ea0f4e39a4282eca83390c6741, type: 2}
+  foodtypes:
+  - {fileID: 486280, guid: 734eb5ea0f4e39a4282eca83390c6741, type: 2}
+  - {fileID: 434770, guid: f2f58b77d6dd248deabae6d35ea21bcb, type: 2}
+  - {fileID: 415248, guid: 2730070a3609146369160d9300398e3b, type: 2}
   probability: 0
   maxCookies: 50
   currentCookies: 0
@@ -67,6 +70,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: foodtypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxCookies
       value: 50
