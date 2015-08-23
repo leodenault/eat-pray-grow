@@ -1,43 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &112090
+--- !u!1 &125410
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 486280}
-  - 212: {fileID: 21236552}
-  - 114: {fileID: 11415652}
-  - 61: {fileID: 6182934}
-  - 50: {fileID: 5018552}
+  - 4: {fileID: 434770}
+  - 212: {fileID: 21227720}
+  - 114: {fileID: 11438980}
+  - 61: {fileID: 6133174}
+  - 50: {fileID: 5099234}
   m_Layer: 0
-  m_Name: Cookie
+  m_Name: Bacteria2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &486280
+--- !u!4 &434770
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112090}
+  m_GameObject: {fileID: 125410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.41600001, y: .0729999989, z: 0}
+  m_LocalPosition: {x: -16.8700008, y: -29.2199993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5018552
+--- !u!50 &5099234
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112090}
+  m_GameObject: {fileID: 125410}
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
@@ -47,12 +47,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6182934
+--- !u!61 &6133174
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112090}
+  m_GameObject: {fileID: 125410}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -60,25 +60,25 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .5, y: .5}
---- !u!114 &11415652
+--- !u!114 &11438980
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112090}
+  m_GameObject: {fileID: 125410}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c1eaad8dee64854b9e02780494f34d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodValue: 1
-  eatenEffect: {fileID: 186568, guid: 1a3eaab1e0391428c8f7ac9c2eee97c3, type: 2}
---- !u!212 &21236552
+  foodValue: 3
+  eatenEffect: {fileID: 129522, guid: bbeca01ab5a8b4952b5572a5fe912293, type: 2}
+--- !u!212 &21227720
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112090}
+  m_GameObject: {fileID: 125410}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9478cb982e7ad4e9cb4e2809693734eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c1808d44fc5743bda77497cf3ac7b28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -107,43 +107,19 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: foodValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9478cb982e7ad4e9cb4e2809693734eb,
+      objectReference: {fileID: 21300000, guid: 6c1808d44fc5743bda77497cf3ac7b28,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: foodValue
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: eatenEffect
       value: 
-      objectReference: {fileID: 186568, guid: 1a3eaab1e0391428c8f7ac9c2eee97c3, type: 2}
+      objectReference: {fileID: 129522, guid: bbeca01ab5a8b4952b5572a5fe912293, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 112090}
+  m_RootGameObject: {fileID: 125410}
   m_IsPrefabParent: 1

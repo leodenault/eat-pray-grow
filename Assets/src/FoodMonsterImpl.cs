@@ -30,7 +30,7 @@ public class FoodMonsterImpl : FoodMonster {
 
 	public void eatFood(Food foodToEat){
 		foodToEat.GetEaten ();
-		food++;
+		food+= foodToEat.foodValue;
 	}
 
 	public Vector3 getPosition() {

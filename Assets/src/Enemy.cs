@@ -2,7 +2,7 @@
 
 public class Enemy : MonoBehaviour {
 
-	private const float MAX_SPEED = 3f;
+	private const float MAX_SPEED = 5f;
 	private const float ROTATION_FACTOR = 10f;
 
 	private FoodMonster monster;
