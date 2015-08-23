@@ -48,6 +48,6 @@ public class FoodMonsterImpl : FoodMonster {
 	}
 
 	public void kill() {
-		Debug.Log("I AM DEAD");
+		Application.LoadLevel("title");
 	}
 }

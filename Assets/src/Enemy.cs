@@ -7,13 +7,17 @@ public class Enemy : MonoBehaviour {
 
 	private FoodMonster monster;
 	private Vector3 velocity;
+	private bool killed;
+	private float killDelay;
 
 	public GameObject enemy;
+	public AudioSource chomp;
 
 	// Use this for initialization
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
 		velocity = getDirectionVector();
+		killed = false;
 	}
 	
 	// Update is called once per frame
@@ -30,11 +34,21 @@ public class Enemy : MonoBehaviour {
 		enemy.transform.Translate(MAX_SPEED * Time.deltaTime * velocity);
 		enemy.transform.rotation = Quaternion.FromToRotation(new Vector3(1, 0, 0), velocity);
 		enemy.transform.Rotate(new Vector3(0, 0, -90));
+
+		if (killed) {
+			if (killDelay > 0) {
+				killDelay -= Time.deltaTime;
+			} else {
+				monster.kill();
+			}
+		}
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.Equals(monster.getHitbox())) {
-			monster.kill();
+			killDelay = chomp.clip.length * 2;
+			killed = true;
+			Instantiate(chomp).Play();
 		}
 	}
 
