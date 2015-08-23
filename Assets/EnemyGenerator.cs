@@ -14,7 +14,7 @@ public class EnemyGenerator : MonoBehaviour
 	public GameObject enemyPrefab;
 
 	private int enemyCount;
-	private int enemyMax = 10;
+	private int enemyMax = 15;
 
 	void Update(){
 
@@ -23,10 +23,16 @@ public class EnemyGenerator : MonoBehaviour
 		double x = 2;
 
 		double poisson = (Math.Pow (Math.E, -mu) * Math.Pow (mu, x)) / Factorial (x);
-		Debug.Log (poisson);
+		//Debug.Log (poisson);
 
-		if (enemyCount < enemyMax) {
-			//SpawnEnemy();
+		//Debug.Log ("Camera " + Camera.main.gameObject.transform.localPosition);
+
+		//Debug.Log ("Width " + screenw + " Height" + screenh);
+		int rand = UnityEngine.Random.Range (0, 500);
+		Debug.Log ("Rand value = " + rand);
+
+		if (enemyCount < enemyMax && rand >= 485) {
+			SpawnEnemy();
 		}
 	}
 
@@ -40,7 +46,24 @@ public class EnemyGenerator : MonoBehaviour
 
 	void SpawnEnemy(){
 		GameObject enemy = Instantiate (enemyPrefab);
-		enemy.transform.position = new Vector3 (10, 10, 0);
+		Vector3 camPos = Camera.main.gameObject.transform.localPosition;
+		Vector3 enemyPos = camPos;
+
+		float randQuad = UnityEngine.Random.Range (0, 4);
+		if (randQuad <= 1) {
+			// ++
+			enemyPos = new Vector3(camPos.x + UnityEngine.Random.Range(10,15), camPos.y + UnityEngine.Random.Range(10,15), 0);
+		} else if (randQuad <= 2) {
+			// +-
+			enemyPos = new Vector3(camPos.x + UnityEngine.Random.Range(10,15), camPos.y - UnityEngine.Random.Range(10,15), 0);
+		} else if (randQuad <= 3) {
+			// -+
+			enemyPos = new Vector3(camPos.x - UnityEngine.Random.Range(10,15), camPos.y + UnityEngine.Random.Range(10,15), 0);
+		} else {
+			// --
+			enemyPos = new Vector3(camPos.x - UnityEngine.Random.Range(10,15), camPos.y - UnityEngine.Random.Range(10,15), 0);
+		}
+		enemy.transform.position = enemyPos;
 		enemyCount++;
 	}
 }
