@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 465776}
   - 114: {fileID: 11485118}
   - 114: {fileID: 11446784}
+  - 114: {fileID: 11479236}
   m_Layer: 0
   m_Name: LevelPrefab
   m_TagString: Untagged
@@ -50,6 +51,19 @@ MonoBehaviour:
   generationWidth: 15
   generationHeight: 10
   center: {fileID: 0}
+--- !u!114 &11479236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d483903ce7673b43aac4bfe2013521e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 0}
+  planes: []
 --- !u!114 &11485118
 MonoBehaviour:
   m_ObjectHideFlags: 1
