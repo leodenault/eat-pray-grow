@@ -5,6 +5,7 @@ using System.Collections;
 public class MonsterMovement : MonoBehaviour {
 
 	private const float speed = 9f;
+	private Vector3 monsterBaseScale = new Vector3(0.66f, 0.66f, 0.66f);
 	private float rotateSpeed = 1f;
 
 	private FoodMonster monster;
@@ -43,7 +44,7 @@ public class MonsterMovement : MonoBehaviour {
 
 			this.transform.localScale =  this.transform.localScale * 0.98f;
 			if (this.transform.localScale.x < 0.66) {
-				this.transform.localScale = new Vector3(0.66f, 0.66f, 0.66f);
+				this.transform.localScale = monsterBaseScale;
 			}
 			
 			transform.Rotate(Vector3.forward, -1080 * Time.deltaTime);
@@ -94,7 +95,7 @@ public class MonsterMovement : MonoBehaviour {
 
 		monster.setPosition(this.transform.position);
 
-		this.transform.localScale =  new Vector3 (0.66f, 0.66f, 0.66f) * (float)(1 + monster.getCurrentFood () * 0.05);
+		this.transform.localScale = monsterBaseScale * (1 + (0.5f * monster.getCurrentFood() / LevelManager.CURRENT.getRequiredTransitionFood()));
 		//Movement
 		/*transform.Translate (Vector3.right * moveHorizontal * speed * Time.deltaTime);
 		transform.Translate (Vector3.up * moveVertical * speed * Time.deltaTime);*/

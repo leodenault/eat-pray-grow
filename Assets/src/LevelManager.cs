@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class LevelManager : MonoBehaviour {
+
+	public static Level CURRENT;
 	
 	public FoodMonster monster;
 
@@ -12,6 +14,7 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
 		Level nextLevel = currentLevel.getNextLevel ();
+		CURRENT = currentLevel;
 
 		while (nextLevel != currentLevel) {
 			nextLevel.Hide();
@@ -45,6 +48,7 @@ public class LevelManager : MonoBehaviour {
 	public void actuallyTransitionToNextLevel() {
 		this.currentLevel.Hide ();
 		this.currentLevel = currentLevel.getNextLevel();
+		CURRENT = this.currentLevel;
 		this.currentLevel.Show ();
 	}
 	
