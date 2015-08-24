@@ -78,9 +78,9 @@ public class MonsterMovement : MonoBehaviour {
 		Rigidbody2D body = (Rigidbody2D)(this.GetComponent(typeof(Rigidbody2D)));
 
 		if (moveHorizontal > 0) {
-			transform.Rotate(Vector3.forward, -rotationDegreesPerSecond * Time.deltaTime);
+			transform.Rotate(Vector3.forward, -rotationDegreesPerSecond * Time.deltaTime * moveHorizontal);
 		} else if (moveHorizontal < 0) {
-			transform.Rotate(Vector3.forward, rotationDegreesPerSecond * Time.deltaTime);
+			transform.Rotate(Vector3.forward, rotationDegreesPerSecond * Time.deltaTime * (-moveHorizontal));
 		}
 
 		//if (moveVertical > 0) {
