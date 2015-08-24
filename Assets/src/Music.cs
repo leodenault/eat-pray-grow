@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Music : MonoBehaviour {
 
-	private const float LOOP_START = 67.5f;
+	private const float LOOP_START = 63.75f;
 
 	private static AudioSource INSTANCE;
 
