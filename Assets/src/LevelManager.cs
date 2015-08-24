@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour {
 	public FoodMonster monster;
 
 	public Level currentLevel;
+	public AudioSource grow;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,7 @@ public class LevelManager : MonoBehaviour {
 	void transitionToNextLevel(){
 		LevelTransition.getInstance ().setManager (this);
 		LevelTransition.getInstance ().startTransition ();
+		grow.Play();
 
 		this.monster.setCurrentFood(0);
 	}
