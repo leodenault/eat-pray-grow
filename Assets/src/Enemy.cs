@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
 
 	private FoodMonster monster;
 	private Vector3 velocity;
+	private AudioSource chompInstance;
+	private AudioSource gameOverInstance;
 	private bool killed;
 	private bool gameOverStart;
 	private float killDelay;
@@ -21,6 +23,8 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 		monster = FoodMonsterImpl.GetInstance();
 		velocity = getDirectionVector();
+		chompInstance = Instantiate(chomp);
+		gameOverInstance = Instantiate(gameOver);
 		killed = false;
 	}
 	
@@ -58,7 +62,7 @@ public class Enemy : MonoBehaviour {
 						Music.togglePause();
 					}
 				} else {
-					Instantiate(gameOver).Play();
+					gameOverInstance.Play();
 				}
 
 				gameOverStart = true;
@@ -67,12 +71,12 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.Equals(monster.getHitbox())) {
+		if (!killed && collider.Equals(monster.getHitbox())) {
+			killed = true;
 			killDelay = chomp.clip.length;
 			gameOverDelay = gameOver.clip.length;
 			Music.togglePause();
-			killed = true;
-			Instantiate(chomp).Play();
+			chompInstance.Play();
 			eatenEffect.transform.localScale = new Vector3(3, 3, 1);
 			Instantiate(eatenEffect, monster.getPosition(), Quaternion.identity);
 			monster.setVisible(false);
