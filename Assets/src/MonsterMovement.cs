@@ -5,25 +5,24 @@ using System.Collections;
 public class MonsterMovement : MonoBehaviour {
 
 	private const float speed = 9f;
+	private const float spinTime = 3f;
+	private const int numSpinRotations = 6;
+	private const float rotationDegreesPerSecond = 170;
 	private Vector3 monsterBaseScale = new Vector3(0.66f, 0.66f, 0.66f);
-	private float rotateSpeed = 1f;
 
 	private FoodMonster monster;
 	private float playTime;
+	private float secondsOfSpinning = 0;
+	private float angle;
 
 	public Text foodCount;
 	public Text time;
 	public GameObject monsterObject;
 	public Camera cam;
 	public AudioSource nom;
-
 	public Collider2D hitbox;
-
-	private float rotationDegreesPerSecond = 170;
-
 	public GameObject transitionEffect;
 
-	float secondsOfSpinning = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -34,21 +33,24 @@ public class MonsterMovement : MonoBehaviour {
 		playTime = 0;
 	}
 
-	Vector3 mousePosition;
-
 	// Update is called once per frame
 	bool firstTransitionTick = true;
 	void Update () {
 
 		if (LevelTransition.getInstance ().getTransitioning ()) {
 
+			if (secondsOfSpinning == 0) {
+				angle = transform.rotation.eulerAngles.z;
+			}
+
 			this.transform.localScale =  this.transform.localScale * 0.98f;
 			if (this.transform.localScale.x < 0.66) {
 				this.transform.localScale = monsterBaseScale;
 			}
 			
-			transform.Rotate(Vector3.forward, -1080 * Time.deltaTime);
 			secondsOfSpinning += Time.deltaTime;
+			float spinPercentage = secondsOfSpinning / spinTime;
+			transform.rotation = Quaternion.Euler(0, 0, angle + spinPercentage * 360 * numSpinRotations);
 
 			if (firstTransitionTick) {
 				Instantiate (transitionEffect, this.transform.position, Quaternion.identity);
@@ -56,7 +58,7 @@ public class MonsterMovement : MonoBehaviour {
 
 			firstTransitionTick = false;
 
-			if (secondsOfSpinning > 3) {
+			if (secondsOfSpinning > spinTime) {
 				LevelTransition.getInstance().endTransition();
 				secondsOfSpinning = 0;
 				firstTransitionTick = true;
