@@ -1560,6 +1560,14 @@ Prefab:
       propertyPath: planes.Array.data[3]
       value: 
       objectReference: {fileID: 1488690791}
+    - target: {fileID: 11446784, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: generationWidth
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446784, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: generationHeight
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
   m_IsPrefabParent: 0
@@ -1834,7 +1842,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465776, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 465776, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1908,6 +1916,14 @@ Prefab:
       propertyPath: foodtypes.Array.data[3]
       value: 
       objectReference: {fileID: 437898, guid: 3e60cc1b0c38d984a999726fca2821c1, type: 2}
+    - target: {fileID: 11446784, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: generationWidth
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446784, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: generationHeight
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
   m_IsPrefabParent: 0
@@ -2082,7 +2098,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11446784, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
       propertyPath: generationWidth
-      value: 23
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -2654,6 +2670,10 @@ Prefab:
       propertyPath: foodtypes.Array.data[22]
       value: 
       objectReference: {fileID: 436334, guid: 0403eef2fb08d1248a3f16b19c6317f9, type: 2}
+    - target: {fileID: 11446784, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
+      propertyPath: generationWidth
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
   m_IsPrefabParent: 0
@@ -3473,7 +3493,7 @@ Prefab:
       objectReference: {fileID: 2069697303}
     - target: {fileID: 11446784, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
       propertyPath: generationWidth
-      value: 23
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11479236, guid: d31e564d5f5cf4a6a84c6c3bc7ab1680, type: 2}
