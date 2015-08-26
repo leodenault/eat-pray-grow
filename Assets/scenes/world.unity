@@ -284,6 +284,7 @@ GameObject:
   - 224: {fileID: 189589942}
   - 222: {fileID: 189589944}
   - 114: {fileID: 189589943}
+  - 114: {fileID: 189589945}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -340,6 +341,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189589941}
+--- !u!114 &189589945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189589941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!224 &213437274 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22443676, guid: 9ebb4f7479f866e408b1d991a1aeeb17,
@@ -1945,6 +1960,7 @@ GameObject:
   - 224: {fileID: 1146759590}
   - 222: {fileID: 1146759592}
   - 114: {fileID: 1146759591}
+  - 114: {fileID: 1146759593}
   m_Layer: 5
   m_Name: FoodCount
   m_TagString: Untagged
@@ -2001,6 +2017,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146759589}
+--- !u!114 &1146759593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146759589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &1170415847
 Prefab:
   m_ObjectHideFlags: 0
